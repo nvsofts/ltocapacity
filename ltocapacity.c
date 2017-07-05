@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
   int fd;
 
   if (argc != 2) {
-    printf("Usage %s <path to sg device of LTO drive>\n", argv[0]);
+    printf("Usage: %s <path to sg device of LTO drive>\n", argv[0]);
     return 1;
   }
 
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
   }
 
   struct sg_io_hdr scsi_cmd;
-  unsigned char cmd[] = {0x4D, 0x00, 0x31 | 0x40, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00};
+  unsigned char cmd[] = {0x4D, 0x00, 0x31 | 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x24, 0x00};
   unsigned char dxfer[36];
 
   memset(&scsi_cmd, 0, sizeof(scsi_cmd));
