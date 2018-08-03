@@ -45,8 +45,12 @@ int main(int argc, char *argv[])
   unsigned int tmp;
 
   tmp = dxfer[11] | (dxfer[10] << 8) | (dxfer[9] << 16) | (dxfer[8] << 24);
-  printf("Remaining: %d MiB / ", tmp);
+  printf("Remaining (Partition 0): %u MiB / ", tmp);
   tmp = dxfer[27] | (dxfer[26] << 8) | (dxfer[25] << 16) | (dxfer[24] << 24);
+  printf("%d MiB\n", tmp);
+  tmp = dxfer[19] | (dxfer[18] << 8) | (dxfer[17] << 16) | (dxfer[16] << 24);
+  printf("Remaining (Partition 1): %u MiB / ", tmp);
+  tmp = dxfer[35] | (dxfer[34] << 8) | (dxfer[33] << 16) | (dxfer[32] << 24);
   printf("%d MiB\n", tmp);
 
   close(fd);
